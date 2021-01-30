@@ -10,26 +10,34 @@ public class DataValidator {
 
     private final String invalidSymbols = "[a-zA-Z!?,:;]";
     private final String correctFormatNumber = "^[+-]?[0-9]+(?:[.][0-9]{1,2})*$";
+    private final String radiusCannotBeNegative = "^[+]?[0-9]+(?:[.][0-9]{1,2})*$";
     private final String delimiter = " ";
+    private final int radiusPosition = 4;
 
-    public boolean isContainInvalid(String string) {
-        return string.matches(invalidSymbols);
+    public boolean isContainInvalid(String number) {
+        return number.matches(invalidSymbols);
     }
 
-    public boolean isContainCorrectNumber(String string) {
-        return string.matches(correctFormatNumber);
+    public boolean isCorrectFormat(String number) {
+        return number.matches(correctFormatNumber);
+    }
+
+    public boolean isRadiusNotNegative(String radius) {
+        return radius.matches(radiusCannotBeNegative);
     }
 
     public boolean isValid(String string) {
         String[] elements = string.split(delimiter);
+        boolean valid = true;
         if (elements.length == 4){
             for (String element : elements) {
-                if (!isContainCorrectNumber(element) || isContainInvalid(string)) {
-                    return false;
+                if (!isCorrectFormat(element) || isContainInvalid(string)) {
+                    valid = false;
                 }
             }
+            valid = isRadiusNotNegative(elements[radiusPosition - 1]);
         }
-        return true;
+        return valid;
     }
 
     public ArrayList<String> validate(ArrayList<String> data) {
