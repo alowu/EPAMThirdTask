@@ -35,7 +35,9 @@ public class DataValidator {
                     valid = false;
                 }
             }
-            valid = isRadiusNotNegative(elements[radiusPosition - 1]);
+            if (valid) {
+                valid = isRadiusNotNegative(elements[radiusPosition - 1]);
+            }
         }
         return valid;
     }
