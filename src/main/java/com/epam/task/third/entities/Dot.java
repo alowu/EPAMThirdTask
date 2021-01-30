@@ -7,6 +7,12 @@ public class Dot {
     private final double y;
     private final double z;
 
+    public Dot() {
+        this.x = 0.;
+        this.y = 0.;
+        this.z = 0.;
+    }
+
     public Dot(double x, double y, double z) {
         this.x = x;
         this.y = y;
