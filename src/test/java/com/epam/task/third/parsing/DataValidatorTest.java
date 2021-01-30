@@ -12,11 +12,12 @@ public class DataValidatorTest {
                 Arrays.asList("-121.2 -113.4 450.5 3.4"
                             , "123.31.155 541 57 354"
                             , "1 2 3 -4"
-                            , "1 2 3g -4"));
+                            , "1 2 3g -4"
+                            , "3.14 15 9 2.6"));
 
     private final ArrayList<String> EXPECTED = new ArrayList<>(
                 Arrays.asList("-121.2 -113.4 450.5 3.4"
-                            ,"1 2 3 -4"));
+                            , "3.14 15 9 2.6"));
 
     private final ArrayList<String> EMPTY_DATA = new ArrayList<>();
 
