@@ -5,7 +5,7 @@ import com.epam.task.third.entities.Sphere;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PropertiesTest {
+public class SpherePropertiesTest {
 
     private final double RADIUS = 5;
     private final Sphere NOT_SPHERE = new Sphere(new Dot(), 0);
@@ -19,7 +19,7 @@ public class PropertiesTest {
 
     @Test
     public void testIsSphereShouldReturnTrueWhenRadiusIsPositive() {
-        Properties property = new Properties();
+        SphereProperties property = new SphereProperties();
 
         boolean result = property.isSphere(SPHERE_T);
 
@@ -28,7 +28,7 @@ public class PropertiesTest {
 
     @Test
     public void testIsSphereShouldReturnFalseWhenRadiusIsZero() {
-        Properties property = new Properties();
+        SphereProperties property = new SphereProperties();
 
         boolean result = property.isSphere(NOT_SPHERE);
 
@@ -37,7 +37,7 @@ public class PropertiesTest {
 
     @Test
     public void testIsTouchAxes() {
-        Properties property = new Properties();
+        SphereProperties property = new SphereProperties();
 
         boolean result = property.isTouchAxes(SPHERE_T);
 
@@ -46,10 +46,19 @@ public class PropertiesTest {
 
     @Test
     public void testIsDontTouchAxes() {
-        Properties property = new Properties();
+        SphereProperties property = new SphereProperties();
 
         boolean result = property.isTouchAxes(SPHERE_DT);
 
         Assert.assertFalse(result);
+    }
+
+    @Test
+    public void testIsCrossAxeShouldReturnTrueWhenCross() {
+        SphereProperties property = new SphereProperties();
+
+        boolean result = property.isCrossAxe(0 ,SPHERE_DT);
+
+        Assert.assertTrue(result);
     }
 }
