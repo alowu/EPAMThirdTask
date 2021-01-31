@@ -53,6 +53,7 @@ public class DataValidator {
             }
             ++numberOfLine;
         }
+        LOG.info("Lines was validated");
         return result;
     }
 }

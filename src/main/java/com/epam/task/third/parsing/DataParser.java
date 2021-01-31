@@ -1,8 +1,12 @@
 package com.epam.task.third.parsing;
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 
 public class DataParser {
+
+    private final static Logger LOG = Logger.getLogger(DataParser.class);
 
     private final String delimiter = " ";
 
@@ -15,6 +19,7 @@ public class DataParser {
     }
 
     public Double[][] parse(ArrayList<String> data){
+        LOG.info("Start parsing data");
         int amountOfSpheres = data.size();
         Double[][] result = new Double[amountOfSpheres][4];
         int position = 0;
@@ -23,6 +28,7 @@ public class DataParser {
             result[position] = getDataFromLine(buffer);
             ++position;
         }
+        LOG.info("Data was parsed");
         return result;
     }
 
