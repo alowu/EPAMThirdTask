@@ -3,20 +3,20 @@ package com.epam.task.third.logic;
 import com.epam.task.third.entities.Dot;
 import com.epam.task.third.entities.Sphere;
 
-public class Value implements Processor {
+public class Volume implements Processor {
 
     @Override
     public double calculate(Sphere sphere) {
         final double radius = sphere.getRadius();
-        final double value = 4 / 3. * Math.PI * radius * radius * radius;
-        return value;
+        final double volume = 4 / 3. * Math.PI * radius * radius * radius;
+        return volume;
     }
 
     public double calculate(Sphere sphere, double point) {
         final double radius = sphere.getRadius();
         final double delta = radius - Math.abs(point);
-        final double value = delta * delta * Math.PI / 3. * (3 * radius - delta);
-        return value;
+        final double volume = delta * delta * Math.PI / 3. * (3 * radius - delta);
+        return volume;
     }
 
     public double volumeRatio(Sphere sphere){
@@ -56,10 +56,10 @@ public class Value implements Processor {
     }
 
     private double findValue(Sphere sphere, double point){
-        Value value = new Value();
+        Volume volume = new Volume();
 
-        double half_1 = value.calculate(sphere, point);
-        double common = value.calculate(sphere);
+        double half_1 = volume.calculate(sphere, point);
+        double common = volume.calculate(sphere);
         double half_2 = common - half_1;
 
         return half_2 / half_1;

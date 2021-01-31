@@ -5,7 +5,7 @@ import com.epam.task.third.entities.Sphere;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ValueTest {
+public class VolumeTest {
     private final static double RADIUS = 2.8217;
     private final static double EXPECTED_VALUE = 94;
     private final static double DELTA = 1e3;
@@ -16,27 +16,27 @@ public class ValueTest {
 
     @Test
     public void testCalculateValueShouldCalculateValueOfOrb() {
-        Value value = new Value();
+        Volume volume = new Volume();
 
-        double result = value.calculate(SPHERE);
+        double result = volume.calculate(SPHERE);
 
         Assert.assertEquals(EXPECTED_VALUE, result, DELTA);
     }
 
     @Test
     public void testCalculateRatioShouldCalculateRatioOfVolumes() {
-        Value value = new Value();
+        Volume volume = new Volume();
 
-        double result = value.volumeRatio(SPHERE,'y');
+        double result = volume.volumeRatio(SPHERE,'y');
 
         Assert.assertEquals(1, result, DELTA);
     }
 
     @Test
     public void testCalculateRatioShouldCalculateRatioOfVolumesWithDefaultParameter() {
-        Value value = new Value();
+        Volume volume = new Volume();
 
-        double result = value.volumeRatio(SPHERE);
+        double result = volume.volumeRatio(SPHERE);
 
         Assert.assertEquals(3.07, result, DELTA);
     }
