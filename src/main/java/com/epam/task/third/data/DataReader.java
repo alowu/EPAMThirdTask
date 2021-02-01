@@ -17,6 +17,7 @@ public class DataReader {
             reader.close();
             LOG.info("Readers are closed");
         } catch (IOException e) {
+            LOG.error("Cant close readers");
             e.printStackTrace();
         }
     }
@@ -29,6 +30,7 @@ public class DataReader {
             fileReader = new FileReader(fileName);
             reader = new BufferedReader(fileReader);
         } catch (IOException e) {
+            LOG.error("File not found: " + fileName);
             throw new DataException(e.getMessage() + " 404", e);
         }
 
@@ -42,6 +44,7 @@ public class DataReader {
                 line = reader.readLine();
             }
         } catch (IOException e) {
+            LOG.error("Something go wrong");
             throw new DataException(e.getMessage(), e);
         } finally {
             closeReaders(fileReader, reader);

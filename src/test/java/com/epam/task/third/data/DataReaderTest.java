@@ -18,11 +18,11 @@ public class DataReaderTest {
 
     private final String nonExistentFileName = "resources/null.txt";
 
-    @Test
-    public void testGetDataShouldThrowDataException() {
+    @Test(expected = DataException.class)
+    public void testGetDataShouldThrowDataException() throws DataException {
         DataReader reader = new DataReader();
 
-        Assert.assertThrows(DataException.class, () -> {reader.getData(nonExistentFileName);});
+        reader.getData(nonExistentFileName);
     }
 
     @Test
