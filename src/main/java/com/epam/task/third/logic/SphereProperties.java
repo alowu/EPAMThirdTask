@@ -24,7 +24,7 @@ public class SphereProperties {
         return touchOx || touchOy || touchOz;
     }
 
-    public boolean touchAxe(double coordinate, double radius) {
+    private boolean touchAxe(double coordinate, double radius) {
         double delta = radius - Math.abs(coordinate);
         return delta == 0;
     }
