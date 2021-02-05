@@ -8,13 +8,13 @@ import org.junit.Test;
 public class SpherePropertiesTest {
 
     private final double RADIUS = 5;
-    private final Sphere NOT_SPHERE = new Sphere(new Dot(), 0);
+    private final Sphere NOT_SPHERE = new Sphere(new Dot(), 0, 0);
 
     private final Dot TOUCH_AXES = new Dot(RADIUS, RADIUS, RADIUS);
     private final Dot DONT_TOUCH = new Dot();
 
-    private final Sphere SPHERE_T = new Sphere(TOUCH_AXES, RADIUS);
-    private final Sphere SPHERE_DT = new Sphere(DONT_TOUCH, RADIUS);
+    private final Sphere SPHERE_T = new Sphere(TOUCH_AXES, RADIUS, 0);
+    private final Sphere SPHERE_DT = new Sphere(DONT_TOUCH, RADIUS, 0);
 
 
     @Test
