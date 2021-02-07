@@ -3,14 +3,12 @@ package com.epam.task.third.entities;
 import java.util.Objects;
 
 public class Sphere {
-    private final Integer ID;
     private Dot center;
     private double radius;
 
-    public Sphere(Dot center, double radius, Integer ID) {
+    public Sphere(Dot center, double radius) {
         this.center = center;
         this.radius = radius;
-        this.ID = ID;
     }
 
     public Dot getCenter() {
@@ -19,10 +17,6 @@ public class Sphere {
 
     public double getRadius() {
         return radius;
-    }
-
-    public Integer getID() {
-        return ID;
     }
 
     public void setCenter(Dot center) {
@@ -38,19 +32,18 @@ public class Sphere {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Sphere sphere = (Sphere) o;
-        return Double.compare(sphere.getRadius(), getRadius()) == 0 && getID().equals(sphere.getID()) && getCenter().equals(sphere.getCenter());
+        return Double.compare(sphere.getRadius(), getRadius()) == 0 && getCenter().equals(sphere.getCenter());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getID(), getCenter(), getRadius());
+        return Objects.hash(getCenter(), getRadius());
     }
 
     @Override
     public String toString() {
         return "Sphere{" +
-                "ID=" + ID +
-                ", center=" + center +
+                "center=" + center +
                 ", radius=" + radius +
                 '}';
     }

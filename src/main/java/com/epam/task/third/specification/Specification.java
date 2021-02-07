@@ -1,7 +1,7 @@
 package com.epam.task.third.specification;
 
-import com.epam.task.third.entities.Sphere;
+import com.epam.task.third.observe.SphereObservable;
 
 public interface Specification {
-    Boolean specified(Sphere sphere);
+    Boolean specified(SphereObservable sphere);
 }

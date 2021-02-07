@@ -1,6 +1,6 @@
 package com.epam.task.third.repository;
 
-import com.epam.task.third.entities.Sphere;
+import com.epam.task.third.observe.SphereObservable;
 import com.epam.task.third.sort.Sort;
 import com.epam.task.third.specification.Specification;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SphereRepository implements Sort, Repository{
     private static SphereRepository REPOSITORY;
-    private List<Sphere> list = new ArrayList<>();
+    private List<SphereObservable> list = new ArrayList<>();
 
     private SphereRepository(){};
 
@@ -21,24 +21,24 @@ public class SphereRepository implements Sort, Repository{
         return REPOSITORY;
     }
 
-    public List<Sphere> getList() {
+    public List<SphereObservable> getList() {
         return list;
     }
 
     @Override
-    public void addSphere(Sphere sphere) {
+    public void addSphere(SphereObservable sphere) {
         list.add(sphere);
     }
 
     @Override
-    public void removeSphere(Sphere sphere) {
+    public void removeSphere(SphereObservable sphere) {
         list.remove(sphere);
     }
 
     @Override
-    public void updateSphere(Sphere sphere) {
+    public void updateSphere(SphereObservable sphere) {
         int id = sphere.getID();
-        for (Sphere figure : list) {
+        for (SphereObservable figure : list) {
             if (id == figure.getID()) {
                 list.remove(figure);
                 list.add(sphere);
@@ -47,9 +47,9 @@ public class SphereRepository implements Sort, Repository{
     }
 
     @Override
-    public List<Sphere> query(Specification specification) {
-        List<Sphere> newList = new ArrayList<>();
-        for (Sphere figure : list) {
+    public List<SphereObservable> query(Specification specification) {
+        List<SphereObservable> newList = new ArrayList<>();
+        for (SphereObservable figure : list) {
             if (specification.specified(figure)){
                 newList.add(figure);
             }

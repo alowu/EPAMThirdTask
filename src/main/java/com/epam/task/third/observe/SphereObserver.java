@@ -1,6 +1,5 @@
 package com.epam.task.third.observe;
 
-import com.epam.task.third.entities.Sphere;
 import com.epam.task.third.logic.SphereLogic;
 import com.epam.task.third.parameters.SphereParameters;
 
@@ -26,7 +25,7 @@ public class SphereObserver implements Observer {
     }
 
     @Override
-    public void update(Sphere sphere) {
+    public void update(SphereObservable sphere) {
         double area = logic.calculateSquare(sphere);
         double volume = logic.calculateVolume(sphere);
         SphereParameters parameters = new SphereParameters(area, volume);

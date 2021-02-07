@@ -9,9 +9,19 @@ import java.util.List;
 public class SphereObservable extends Sphere implements Observable {
 
     private List<Observer> observers = new ArrayList<>();
+    private Integer id;
 
     public SphereObservable(Dot center, double radius, Integer ID) {
-        super(center, radius, ID);
+        super(center, radius);
+        this.id = ID;
+    }
+
+    public List<Observer> getObservers() {
+        return observers;
+    }
+
+    public Integer getID() {
+        return id;
     }
 
     @Override

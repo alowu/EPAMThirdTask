@@ -1,7 +1,7 @@
 package com.epam.task.third.specification;
 
-import com.epam.task.third.entities.Sphere;
 import com.epam.task.third.logic.SphereLogic;
+import com.epam.task.third.observe.SphereObservable;
 
 public class SpecificationByArea implements Specification{
     private double area;
@@ -12,7 +12,7 @@ public class SpecificationByArea implements Specification{
     }
 
     @Override
-    public Boolean specified(Sphere sphere) {
+    public Boolean specified(SphereObservable sphere) {
         double area = calculator.calculateSquare(sphere);
         return area >= this.area;
     }

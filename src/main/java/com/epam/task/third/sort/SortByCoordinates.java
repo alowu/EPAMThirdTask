@@ -2,12 +2,13 @@ package com.epam.task.third.sort;
 
 import com.epam.task.third.entities.Dot;
 import com.epam.task.third.entities.Sphere;
+import com.epam.task.third.observe.SphereObservable;
 
 import java.util.Comparator;
 
-public class SortByCoordinates implements Comparator<Sphere> {
+public class SortByCoordinates implements Comparator<SphereObservable> {
     @Override
-    public int compare(Sphere s1, Sphere s2) {
+    public int compare(SphereObservable s1, SphereObservable s2) {
         Dot center1 = s1.getCenter();
         Dot center2 = s2.getCenter();
 

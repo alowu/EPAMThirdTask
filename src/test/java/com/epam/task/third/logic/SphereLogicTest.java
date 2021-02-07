@@ -14,7 +14,7 @@ public class SphereLogicTest {
 
     private final Dot CENTER = new Dot(1, 1, 1);
 
-    private final Sphere SPHERE = new Sphere(CENTER, RADIUS, 0);
+    private final Sphere SPHERE = new Sphere(CENTER, RADIUS);
 
     @Test
     public void testCalculateSquareShouldCalculateSquareOfOrb() {
