@@ -2,6 +2,6 @@ package com.epam.task.third.sort;
 
 import java.util.Comparator;
 
-public interface Sort {
+public interface Sorter {
     void sort(Comparator comparator);
 }

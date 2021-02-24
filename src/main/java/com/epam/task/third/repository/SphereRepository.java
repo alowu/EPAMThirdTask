@@ -1,23 +1,20 @@
 package com.epam.task.third.repository;
 
 import com.epam.task.third.observe.SphereObservable;
-import com.epam.task.third.sort.Sort;
+import com.epam.task.third.sort.Sorter;
 import com.epam.task.third.specification.Specification;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class SphereRepository implements Sort, Repository{
-    private static SphereRepository REPOSITORY;
+public class SphereRepository implements Sorter, Repository{
+    private SphereRepository REPOSITORY;
     private List<SphereObservable> list = new ArrayList<>();
 
-    private SphereRepository(){};
+    SphereRepository(){};
 
-    public static SphereRepository getRepository(){
-        if (REPOSITORY == null) {
-            REPOSITORY = new SphereRepository();
-        }
+    public SphereRepository getRepository(){
         return REPOSITORY;
     }
 
@@ -26,7 +23,7 @@ public class SphereRepository implements Sort, Repository{
     }
 
     @Override
-    public void addSphere(SphereObservable sphere) {
+    public void add(SphereObservable sphere) {
         list.add(sphere);
     }
 
@@ -37,9 +34,9 @@ public class SphereRepository implements Sort, Repository{
 
     @Override
     public void updateSphere(SphereObservable sphere) {
-        int id = sphere.getID();
+        int id = sphere.getId();
         for (SphereObservable figure : list) {
-            if (id == figure.getID()) {
+            if (id == figure.getId()) {
                 list.remove(figure);
                 list.add(sphere);
             }

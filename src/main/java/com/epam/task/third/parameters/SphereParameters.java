@@ -21,8 +21,12 @@ public class SphereParameters {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         SphereParameters that = (SphereParameters) o;
         return Double.compare(that.getArea(), getArea()) == 0 && Double.compare(that.getVolume(), getVolume()) == 0;
     }

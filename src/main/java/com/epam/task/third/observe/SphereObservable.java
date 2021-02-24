@@ -20,7 +20,7 @@ public class SphereObservable extends Sphere implements Observable {
         return observers;
     }
 
-    public Integer getID() {
+    public Integer getId() {
         return id;
     }
 

@@ -29,6 +29,6 @@ public class SphereObserver implements Observer {
         double area = logic.calculateSquare(sphere);
         double volume = logic.calculateVolume(sphere);
         SphereParameters parameters = new SphereParameters(area, volume);
-        parametersMap.put(sphere.getID(), parameters);
+        parametersMap.put(sphere.getId(), parameters);
     }
 }

@@ -2,10 +2,10 @@ package com.epam.task.third.repository;
 
 import com.epam.task.third.entities.Dot;
 import com.epam.task.third.observe.SphereObservable;
-import com.epam.task.third.sort.SortByCoordinates;
-import com.epam.task.third.sort.SortByID;
-import com.epam.task.third.specification.SpecificationByArea;
-import com.epam.task.third.specification.SpecificationByVolume;
+import com.epam.task.third.sort.CoordinatesSorter;
+import com.epam.task.third.sort.IdSorter;
+import com.epam.task.third.specification.AreaSpecification;
+import com.epam.task.third.specification.VolumeSpecification;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SphereRepositoryTest {
-    private final static SphereRepository REPOSITORY = SphereRepository.getRepository();
+    private final static SphereRepository REPOSITORY = new SphereRepository();
     private final static List<SphereObservable> SPHERES = Arrays.asList(
             new SphereObservable(new Dot(0, 0, 0), 2, 4),
             new SphereObservable(new Dot(10, 0, 0), 4, 2),
@@ -41,13 +41,13 @@ public class SphereRepositoryTest {
     @BeforeClass
     public static void loadData(){
         for (SphereObservable sphere : SPHERES){
-            REPOSITORY.addSphere(sphere);
+            REPOSITORY.add(sphere);
         }
     }
 
     @Test
     public void testQueryShouldReturnListSpecifiedByAreaWhenOvalsApplied() {
-        SpecificationByArea byArea = new SpecificationByArea(250.);
+        AreaSpecification byArea = new AreaSpecification(250.);
 
         List<SphereObservable> result = REPOSITORY.query(byArea);
 
@@ -56,7 +56,7 @@ public class SphereRepositoryTest {
 
     @Test
     public void testQueryShouldReturnListSpecifiedByVolumeWhenOvalsApplied() {
-        SpecificationByVolume byVolume = new SpecificationByVolume(600.);
+        VolumeSpecification byVolume = new VolumeSpecification(600.);
 
         List<SphereObservable> result = REPOSITORY.query(byVolume);
 
@@ -65,7 +65,7 @@ public class SphereRepositoryTest {
 
     @Test
     public void testQueryShouldReturnListSortedByIDWhenOvalsApplied(){
-        SortByID byID = new SortByID();
+        IdSorter byID = new IdSorter();
 
         REPOSITORY.sort(byID);
         List<SphereObservable> result = REPOSITORY.getList();
@@ -75,7 +75,7 @@ public class SphereRepositoryTest {
 
     @Test
     public void testQueryShouldReturnListSortedByCoordinateWhenOvalsApplied(){
-        SortByCoordinates byX = new SortByCoordinates();
+        CoordinatesSorter byX = new CoordinatesSorter();
 
         REPOSITORY.sort(byX);
         List<SphereObservable> result = REPOSITORY.getList();

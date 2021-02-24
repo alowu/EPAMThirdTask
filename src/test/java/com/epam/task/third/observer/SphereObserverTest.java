@@ -15,14 +15,17 @@ public class SphereObserverTest {
 
     @Test
     public void testUpdateShouldObservedChangesWhenSphereObservableElementApplied() {
+        //given
         SPHERE.addObserver(OBSERVER);
+        Map<Integer, SphereParameters> old = OBSERVER.getParametersMap();
+        String previous = old.toString();
 
-        Map<Integer, SphereParameters> stage1 = OBSERVER.getParametersMap();
-        String old = stage1.toString();
+        //when
         SPHERE.setRadius(10);
-        Map<Integer, SphereParameters> stage2 = OBSERVER.getParametersMap();
-        String current = stage2.toString();
+        Map<Integer, SphereParameters> changed = OBSERVER.getParametersMap();
+        String current = changed.toString();
 
-        Assert.assertNotEquals(old, current);
+        //then
+        Assert.assertNotEquals(previous, current);
     }
 }
