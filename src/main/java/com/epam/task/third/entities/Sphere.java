@@ -3,8 +3,8 @@ package com.epam.task.third.entities;
 import java.util.Objects;
 
 public class Sphere {
-    private final Dot center;
-    private final double radius;
+    private Dot center;
+    private double radius;
 
     public Sphere(Dot center, double radius) {
         this.center = center;
@@ -17,6 +17,14 @@ public class Sphere {
 
     public double getRadius() {
         return radius;
+    }
+
+    public void setCenter(Dot center) {
+        this.center = center;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 
     @Override
